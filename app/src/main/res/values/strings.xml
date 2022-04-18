@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">C_R_System</string>
+    <string name="CR_logo">CR_logo</string>
+    <string name="sign_in_with_email">Sign In with Email</string>
+    <string name="no_account_yet">No account yet? <u>Sign Up</u></string>
+    <string name="by_continuing_you_agree_to_our_terms_and_conditions">By continuing you agree to our terms and conditions</string>
+    <string name="sign_in">Sign In</string>
+    <string name="passwords_do_not_match">Passwords do not match!</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email_password_not_empty">Email / Password cannot be empty!</string>
+    <string name="incorrect_email_password">Incorrect email / password</string>
+    <string name="sign_in_failed">Sign In failed!</string>
+    <string name="fill_all_fields">Please fill all the fields</string>
+
 </resources>
