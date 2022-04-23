@@ -26,12 +26,10 @@ class MainFragment : Fragment() {
 
     private fun init() {
         mainActivity = activity as MainActivity
-        mainActivity.showFabBottomAppBar()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        mainActivity.hideFabBottomAppBar()
     }
 }

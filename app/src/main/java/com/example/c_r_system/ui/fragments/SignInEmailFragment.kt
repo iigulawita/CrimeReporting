@@ -37,7 +37,6 @@ class SignInEmailFragment : Fragment() {
 
     private fun init() {
         val mainActivity = activity as MainActivity
-        mainActivity.hideFabBottomAppBar()
         firestoreService = FirestoreService()
         binding.btnSignIn.setOnClickListener {
             val email = binding.editEmail.text.toString()

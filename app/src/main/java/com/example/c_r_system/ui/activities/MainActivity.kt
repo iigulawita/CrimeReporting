@@ -1,12 +1,9 @@
 package com.example.c_r_system.ui.activities
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.example.c_r_system.R
 import com.example.c_r_system.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -28,9 +25,7 @@ class MainActivity : AppCompatActivity() {
     private fun init() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.fabCheck.setOnClickListener {
 
-        }
 
         initNavigation()
         // Navigate to SigIn if not already authenticated
@@ -44,9 +39,8 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragment_container_view) as NavHostFragment
         navController = navHostFragment.navController
-        binding.bottomAppBar.setupWithNavController(navController)
-        setSupportActionBar(binding.bottomAppBar)
-        hideFabBottomAppBar()
+
+
     }
 
     override fun onStart() {
@@ -61,15 +55,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    internal fun showFabBottomAppBar() {
-        binding.fabCheck.show()
-        binding.bottomAppBar.performShow()
-    }
 
-    internal fun hideFabBottomAppBar() {
-        binding.fabCheck.hide()
-        binding.bottomAppBar.performHide()
-    }
 
     companion object {
         private const val TAG: String = "MainActivity"
