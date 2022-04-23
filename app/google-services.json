@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "597803398197",
+    "project_id": "crime-report-app-20e65",
+    "storage_bucket": "crime-report-app-20e65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597803398197:android:df0584e088262fa6b0ad7c",
+        "android_client_info": {
+          "package_name": "com.example.c_r_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597803398197-n89o9ng7hdelnv7uqd8susmbpruotf0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZCzMGoVTAdNfKGscpcCu1NmjWqi6j1Mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597803398197-n89o9ng7hdelnv7uqd8susmbpruotf0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
