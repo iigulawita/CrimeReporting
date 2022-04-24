@@ -22,10 +22,14 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         init()
         return binding.root
+
     }
 
     private fun init() {
         mainActivity = activity as MainActivity
+
+
+
     }
 
     override fun onDestroyView() {

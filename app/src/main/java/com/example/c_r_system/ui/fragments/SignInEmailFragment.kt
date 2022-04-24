@@ -36,7 +36,7 @@ class SignInEmailFragment : Fragment() {
     }
 
     private fun init() {
-        val mainActivity = activity as MainActivity
+       // val mainActivity = activity as MainActivity
         firestoreService = FirestoreService()
         binding.btnSignIn.setOnClickListener {
             val email = binding.editEmail.text.toString()

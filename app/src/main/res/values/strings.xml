@@ -14,5 +14,7 @@
     <string name="incorrect_email_password">Incorrect email / password</string>
     <string name="sign_in_failed">Sign In failed!</string>
     <string name="fill_all_fields">Please fill all the fields</string>
+    <string name="ic_logcmr">camara logo</string>
+    <string name="create_profile">Create Profile</string>
 
 </resources>
