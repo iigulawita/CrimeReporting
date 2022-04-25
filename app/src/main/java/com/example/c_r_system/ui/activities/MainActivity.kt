@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity() {
     private fun init() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.fabCheck.setOnClickListener {
+            navController.navigate(R.id.action_mainFragment_to_camaraFragment2)
+        }
 
 
         initNavigation()

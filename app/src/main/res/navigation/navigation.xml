@@ -8,8 +8,11 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.c_r_system.ui.fragments.MainFragment"
-        android:label="fragment_main"
-       />
+        android:label="fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_camaraFragment2"
+            app:destination="@id/camaraFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.c_r_system.ui.fragments.SignInFragment"
@@ -51,4 +54,9 @@
             android:id="@+id/action_signInEmail_to_main"
             app:destination="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/camaraFragment"
+        android:name="com.example.c_r_system.ui.fragments.camaraFragment"
+        android:label="camara_main"
+        tools:layout="@layout/camara_main" />
 </navigation>
