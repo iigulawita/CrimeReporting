@@ -6,6 +6,7 @@
     android:layout_weight="0.4"
     android:gravity="center_vertical"
     android:orientation="vertical"
+    android:background="@color/white"
     android:padding="20dp"
     tools:context=".ui.fragments.SignUpEmailFragment">
 
@@ -15,9 +16,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:autofillHints="emailAddress"
+        android:textColorHint="@color/black"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        />
+
 
     <EditText
         android:id="@+id/edit_password"
@@ -27,6 +31,7 @@
         android:autofillHints="password"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:textColorHint="@color/black"
         android:minHeight="48dp" />
 
     <EditText
@@ -37,6 +42,7 @@
         android:autofillHints="password"
         android:hint="@string/confirm_password"
         android:inputType="textPassword"
+        android:textColorHint="@color/black"
         android:minHeight="48dp" />
 
     <TextView

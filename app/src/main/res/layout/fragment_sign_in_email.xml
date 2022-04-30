@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
+    android:background="@color/white"
     android:padding="20dp"
+
     tools:context=".ui.fragments.SignInEmailFragment">
 
     <EditText
@@ -15,6 +17,8 @@
         android:layout_marginBottom="20dp"
         android:autofillHints="emailAddress"
         android:hint="@string/email"
+        android:textColorHint="@color/black"
+
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />
 
@@ -25,7 +29,10 @@
         android:autofillHints="password"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColorHint="@color/black"
+        />
+
 
     <TextView
         android:id="@+id/lbError"

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.c_r_system.R
 import com.example.c_r_system.databinding.FragmentMainBinding
+
 import com.example.c_r_system.ui.activities.MainActivity
 
 
@@ -28,10 +29,12 @@ class MainFragment : Fragment() {
 
     private fun init() {
         mainActivity = activity as MainActivity
+        mainActivity.showFabBottomAppBar()
 
 
 
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

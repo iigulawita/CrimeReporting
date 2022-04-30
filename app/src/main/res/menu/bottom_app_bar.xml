@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/profile"
-        android:icon="@drawable/ic_logcmr"
-        android:title="@string/app_name" />
-
-    <item
-        android:id="@+id/history"
-        android:title="@string/ic_logcmr"
+        android:id="@+id/About_us"
+        android:title="@string/About_us"
         android:icon="@drawable/ic_logcmr" />
     <item
-        android:id="@+id/settings"
-        android:title="@string/ic_logcmr"
+        android:id="@+id/Sign_Out"
+        android:title="@string/Sign_Out"
         android:icon="@drawable/ic_logcmr" />
 
 
