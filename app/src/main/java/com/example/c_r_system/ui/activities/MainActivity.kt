@@ -11,13 +11,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.c_r_system.R
 import com.example.c_r_system.databinding.ActivityMainBinding
+import com.example.c_r_system.databinding.FragmentMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
+
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var _binding: FragmentMainBinding
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var auth: FirebaseAuth
@@ -25,11 +28,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
+
+
     }
 
     private fun init() {
        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
 
 
 
@@ -48,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         binding.bottomAppBar.setupWithNavController(navController)
         setSupportActionBar(binding.bottomAppBar)
+
 
 
     }
@@ -81,6 +90,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 
 

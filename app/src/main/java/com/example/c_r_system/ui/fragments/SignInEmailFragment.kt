@@ -60,9 +60,9 @@ class SignInEmailFragment : Fragment() {
                         override fun onPostExecute(user: AppUser) {
                             Log.d(TAG, "profileComplete = ${user.profileComplete}")
                             if (!user.profileComplete)
-                                findNavController().navigate(R.id.action_signInEmail_to_editProfile)
-                            else
                                 findNavController().navigate(R.id.action_signInEmail_to_main)
+                            else
+                                findNavController().navigate(R.id.signUpEmailFragment)
                         }
                     }, auth.currentUser?.uid.toString())
                 } else {

@@ -106,10 +106,7 @@ class SignInFragment : Fragment() {
                         auth.currentUser?.displayName,
                         auth.currentUser?.email.toString(),
                         false,
-                        null,
-                        null,
-                        null,
-                        null
+
                     )
                     firestoreService = FirestoreService()
                     firestoreService.addUser(object : UserCallback {
@@ -127,7 +124,7 @@ class SignInFragment : Fragment() {
 
                         override fun onPostExecute(user: AppUser) {
                             if (!user.profileComplete) {
-                                findNavController().navigate(R.id.action_signIn_to_editProfile)
+                                findNavController().navigate(R.id.action_signInEmail_to_main)
                             } else {
                                 findNavController().navigate(R.id.action_signIn_to_main)
                                 Snackbar.make(

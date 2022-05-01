@@ -7,6 +7,7 @@
     android:background="@color/white"
 
     tools:context=".ui.fragments.MainFragment">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"

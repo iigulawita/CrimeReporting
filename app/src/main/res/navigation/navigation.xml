@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.c_r_system.ui.fragments.MainFragment"
+        android:name="com.example.c_r_system.ui.fragments.CamaraFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
         <action
@@ -50,7 +50,6 @@
         tools:layout="@layout/fragment_sign_up_email" />
     <action
         android:id="@+id/action_signInEmail_to_editProfile" />
-
     <fragment
         android:id="@+id/signInEmailFragment"
         android:name="com.example.c_r_system.ui.fragments.SignInEmailFragment"

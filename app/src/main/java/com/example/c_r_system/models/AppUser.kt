@@ -5,10 +5,7 @@ data class AppUser(
     val name: String?,
     val email: String,
     val profileComplete: Boolean,
-    val address: String?,
-    val mobileNo: String?,
-    val guardian: Guardian?,
-    val settings: Settings?
+
 )
 
 

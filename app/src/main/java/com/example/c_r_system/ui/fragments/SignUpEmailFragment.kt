@@ -63,10 +63,7 @@ class SignUpEmailFragment : Fragment() {
                         auth.currentUser?.displayName,
                         auth.currentUser?.email ?: return@addOnCompleteListener,
                         false,
-                        null,
-                        null,
-                        null,
-                        null
+
                     )
                     firestoreService.addUser(object : UserCallback {
                         override fun onPostExecute(dRef: String) {

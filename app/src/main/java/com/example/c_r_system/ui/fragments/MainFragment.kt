@@ -17,6 +17,7 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var mainActivity: MainActivity
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +34,9 @@ class MainFragment : Fragment() {
 
 
 
+
     }
+
 
 
     override fun onDestroyView() {
