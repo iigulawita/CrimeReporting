@@ -1,5 +1,6 @@
 package com.example.c_r_system.ui.fragments
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,6 @@ class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private lateinit var mainActivity: MainActivity
 
 
     override fun onCreateView(
@@ -29,8 +29,7 @@ class MainFragment : Fragment() {
     }
 
     private fun init() {
-        mainActivity = activity as MainActivity
-        mainActivity.showFabBottomAppBar()
+
 
 
 

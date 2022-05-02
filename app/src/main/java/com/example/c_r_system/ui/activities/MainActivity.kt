@@ -5,22 +5,23 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
+
 import androidx.navigation.ui.setupWithNavController
 import com.example.c_r_system.R
 import com.example.c_r_system.databinding.ActivityMainBinding
-import com.example.c_r_system.databinding.FragmentMainBinding
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
 
+
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var _binding: FragmentMainBinding
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var auth: FirebaseAuth
@@ -83,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 auth.signOut()
                 navController.navigate(R.id.signInFragment)
 
+
             }
 
         }
@@ -103,6 +105,10 @@ class MainActivity : AppCompatActivity() {
     internal fun showFabBottomAppBar() {
        binding.bottomAppBar.performShow()
 
+    }
+    internal fun hideFabBottomAppBar() {
+
+        binding.bottomAppBar.performHide()
     }
 
 }

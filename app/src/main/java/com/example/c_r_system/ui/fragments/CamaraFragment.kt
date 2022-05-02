@@ -1,4 +1,5 @@
 package com.example.c_r_system.ui.fragments
+
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException
@@ -13,8 +14,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import coil.load
 import coil.transform.CircleCropTransformation
+import com.example.c_r_system.R
 import com.example.c_r_system.databinding.FragmentMainBinding
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -25,19 +28,25 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
 
+
 class CamaraFragment : Fragment(){
 
 
-   private lateinit var binding: FragmentMainBinding
+   private  var _binding: FragmentMainBinding?= null
+    private val binding get() = _binding!!
+
     private val CAMERA_REQUEST_CODE = 1
     private val GALLERY_REQUEST_CODE = 2
+
+
 
       override  fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
          init()
+
         return binding.root
     }
 
@@ -52,7 +61,12 @@ class CamaraFragment : Fragment(){
         binding.btnGallery.setOnClickListener {
             galleryCheckPermission()
         }
+       binding.btnstore.setOnClickListener {
 
+          // navController.navigate(R.id.action_mainFragment_to_choose_file)
+           findNavController().navigate(R.id.action_mainFragment_to_UploadFile)
+
+       }
         //when you click on the image
         binding.imageView.setOnClickListener {
             val pictureDialog = AlertDialog.Builder(requireActivity())
@@ -161,7 +175,7 @@ class CamaraFragment : Fragment(){
                 GALLERY_REQUEST_CODE -> {
 
                     binding.imageView.load(data?.data) {
-                        crossfade(true)
+                        crossfade(false)
                         crossfade(1000)
                         transformations(CircleCropTransformation())
                     }
@@ -193,6 +207,11 @@ class CamaraFragment : Fragment(){
             .setNegativeButton("CANCEL") { dialog, _ ->
                 dialog.dismiss()
             }.show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

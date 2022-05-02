@@ -23,5 +23,6 @@
     <string name="version_0_0_1">Version : 0.0.1</string>
     <string name="app_desc">mState help people to diagnose user\'s mood and help and encourage users to seek help and notify relevant contacts if they are in a troubled situation.</string>
     <string name="pref_sign_out">sign_out</string>
+    <string name="Select_City">Select City</string>
 
 </resources>
