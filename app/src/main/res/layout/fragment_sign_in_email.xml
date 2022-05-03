@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:autofillHints="emailAddress"
+        android:textColor="@color/black"
         android:hint="@string/email"
         android:textColorHint="@color/black"
 
@@ -29,6 +30,7 @@
         android:autofillHints="password"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:textColor="@color/black"
         android:minHeight="48dp"
         android:textColorHint="@color/black"
         />
