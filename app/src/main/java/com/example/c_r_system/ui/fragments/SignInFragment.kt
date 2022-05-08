@@ -11,9 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.c_r_system.R
 import com.example.c_r_system.databinding.FragmentSignInBinding
-import com.example.c_r_system.models.AppUser
-import com.example.c_r_system.services.FirestoreService
-import com.example.c_r_system.services.UserCallback
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -32,7 +29,6 @@ class SignInFragment : Fragment() {
     internal val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-    private lateinit var firestoreService: FirestoreService
     private var binding_: Fragment? = null
 
     override fun onCreateView(
@@ -101,41 +97,7 @@ class SignInFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
-                    val user = AppUser(
-                        auth.currentUser?.uid,
-                        auth.currentUser?.displayName,
-                        auth.currentUser?.email.toString(),
-                        false,
-
-                    )
-                    firestoreService = FirestoreService()
-                    firestoreService.addUser(object : UserCallback {
-
-                        override fun onPostExecute(dRef: String) {
-                            Log.d(TAG, "dRef = $dRef")
-                        }
-
-                        override fun onPostExecute(user: AppUser) {}
-                    }, user)
-
-                    val uid = auth.uid
-                    firestoreService.readUser(object : UserCallback {
-                        override fun onPostExecute(dRef: String) {}
-
-                        override fun onPostExecute(user: AppUser) {
-                            if (!user.profileComplete) {
-                                findNavController().navigate(R.id.action_signInEmail_to_main)
-                            } else {
-                                findNavController().navigate(R.id.action_signIn_to_main)
-                                Snackbar.make(
-                                    binding.root,
-                                    "Welcome ${user.name}!",
-                                    Snackbar.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    }, uid.toString())
-
+                    findNavController().navigate(R.id.action_signIn_to_main)
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     Snackbar.make(binding.root, R.string.sign_in_failed, Snackbar.LENGTH_SHORT)

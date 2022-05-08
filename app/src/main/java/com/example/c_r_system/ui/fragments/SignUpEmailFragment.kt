@@ -11,8 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.c_r_system.R
 import com.example.c_r_system.databinding.FragmentSignUpEmailBinding
 import com.example.c_r_system.models.AppUser
-import com.example.c_r_system.services.FirestoreService
-import com.example.c_r_system.services.UserCallback
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -57,22 +55,7 @@ class SignUpEmailFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Log.d(SignInFragment.TAG, "createUserWithEmail:success")
-                    val firestoreService = FirestoreService()
-                    val user = AppUser(
-                        auth.currentUser?.uid,
-                        auth.currentUser?.displayName,
-                        auth.currentUser?.email ?: return@addOnCompleteListener,
-                        false,
-
-                    )
-                    firestoreService.addUser(object : UserCallback {
-                        override fun onPostExecute(dRef: String) {
-                            Log.d(TAG, "dRef = $dRef")
-                        }
-
-                        override fun onPostExecute(user: AppUser) {}
-
-                    }, user)
+                  
                     findNavController().navigate(R.id.action_global_signIn)
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)

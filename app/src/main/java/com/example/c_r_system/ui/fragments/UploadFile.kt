@@ -3,15 +3,19 @@ package com.example.c_r_system.ui.fragments
 import android.app.Activity.RESULT_OK
 import android.content.ContentResolver
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.provider.MediaStore
+import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.MimeTypeMap
 import android.widget.*
-import androidx.core.view.get
+
 import androidx.fragment.app.Fragment
 import coil.load
 import com.example.c_r_system.databinding.FragmentUploadFileBinding
@@ -19,6 +23,7 @@ import com.example.c_r_system.ui.activities.MainActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.*
+import java.io.ByteArrayOutputStream
 
 
 class UploadFile : Fragment(), AdapterView.OnItemSelectedListener {
@@ -36,6 +41,7 @@ class UploadFile : Fragment(), AdapterView.OnItemSelectedListener {
     private var mDatabaseRef: DatabaseReference? = null
     private var mUploadTask: StorageTask<*>? = null
     private var city:String = ""
+    private var encodedImage = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,8 +83,14 @@ class UploadFile : Fragment(), AdapterView.OnItemSelectedListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
             mImageUri = data.data!!
-            /* Log.d("UploadFile", mImageUri.toString())
-           mImageView?.setImageURI(mImageUri)*/
+
+            Log.d("UploadFile", mImageUri.toString())
+           val bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, mImageUri)
+            val baos = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+            val bytes = baos.toByteArray()
+            encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT)
+            Log.d("UploadFile", "onActivityResult: $encodedImage")
             binding.imageView.load(mImageUri) {
                 crossfade(false)
                 crossfade(1000)
@@ -111,7 +123,7 @@ class UploadFile : Fragment(), AdapterView.OnItemSelectedListener {
 
                         val upload = Upload(
                             binding.editTextFileName.text.toString().trim { it <= ' ' },
-                            taskSnapshot.uploadSessionUri.toString(),
+                            encodedImage,
                             city
                         )
                         val uploadId = mDatabaseRef!!.push().key
@@ -135,9 +147,7 @@ class UploadFile : Fragment(), AdapterView.OnItemSelectedListener {
     private fun setupSpinner() {
 
 
-        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
-            requireContext(),
-            android.R.layout.simple_spinner_dropdown_item,
+        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(requireContext(),android.R.layout.simple_spinner_dropdown_item,
             items
         )
         binding.spinner1.adapter = adapter

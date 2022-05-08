@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "597803398197",
+    "firebase_url": "https://crime-report-app-20e65-default-rtdb.firebaseio.com",
     "project_id": "crime-report-app-20e65",
     "storage_bucket": "crime-report-app-20e65.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "597803398197-2ol20kgt15bf4rilo8kjinp9qs3jjol5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.c_r_system",
+            "certificate_hash": "77d7cbdca2e42642bae9bf4085f823b2af4028e7"
+          }
+        },
         {
           "client_id": "597803398197-n89o9ng7hdelnv7uqd8susmbpruotf0s.apps.googleusercontent.com",
           "client_type": 3

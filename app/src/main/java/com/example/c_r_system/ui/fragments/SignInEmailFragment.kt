@@ -10,13 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.c_r_system.R
 import com.example.c_r_system.databinding.FragmentSignInEmailBinding
-import com.example.c_r_system.models.AppUser
-import com.example.c_r_system.services.FirestoreService
-import com.example.c_r_system.services.UserCallback
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.example.c_r_system.ui.activities.MainActivity
 
 @SuppressLint("LogConditional")
 class SignInEmailFragment : Fragment() {
@@ -24,7 +20,6 @@ class SignInEmailFragment : Fragment() {
     private var _binding: FragmentSignInEmailBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
-    private lateinit var firestoreService: FirestoreService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +31,7 @@ class SignInEmailFragment : Fragment() {
     }
 
     private fun init() {
-       // val mainActivity = activity as MainActivity
-        firestoreService = FirestoreService()
+
         binding.btnSignIn.setOnClickListener {
             val email = binding.editEmail.text.toString()
             val password = binding.editPassword.text.toString()
@@ -54,17 +48,7 @@ class SignInEmailFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithEmail:success")
-                    firestoreService.readUser(object : UserCallback {
-                        override fun onPostExecute(dRef: String) {}
-
-                        override fun onPostExecute(user: AppUser) {
-                            Log.d(TAG, "profileComplete = ${user.profileComplete}")
-                            if (!user.profileComplete)
-                                findNavController().navigate(R.id.action_signInEmail_to_main)
-                            else
-                                findNavController().navigate(R.id.signUpEmailFragment)
-                        }
-                    }, auth.currentUser?.uid.toString())
+                   findNavController().navigate(R.id.action_signInEmail_to_main)
                 } else {
                     Log.w(SignInFragment.TAG, "signInWithEmail:failure", task.exception)
                     binding.lbError.visibility = View.VISIBLE
